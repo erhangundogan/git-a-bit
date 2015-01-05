@@ -2,41 +2,25 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
-describe('my app', function() {
+describe('git-a-bit', function() {
 
-  browser.get('index.html');
+  browser.get('/');
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser.getLocationAbsUrl()).toMatch("/view1");
+  it('should automatically redirect to /404 when location hash/fragment is empty', function() {
+    expect(browser.getLocationAbsUrl()).toMatch("/404");
   });
 
 
-  describe('view1', function() {
+  describe('404', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view1');
+      browser.get('/404');
     });
 
-
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
-    });
-
-  });
-
-
-  describe('view2', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#/view2');
-    });
-
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+    it('should render 404 when user navigates to /404', function() {
+      expect(element.all(by.css('[ng-view] h3')).first().getText()).toMatch(/404/);
     });
 
   });
+
 });

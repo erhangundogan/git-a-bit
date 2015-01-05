@@ -1,12 +1,24 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+var gitabit = angular
+
+  .module('gitabit', [
+    'ngRoute'
+  ]).
+
+  config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+
+    $locationProvider.hashPrefix('!');
+
+    $routeProvider
+
+      .when('/404', {
+        templateUrl: '/feature/status/404.html'
+      })
+
+      .otherwise({
+        redirectTo: '/404'
+      });
+
+  }]);
