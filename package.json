@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "git-a-bit",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "Github oriented experimental spa project",
+  "repository": "https://github.com/erhangundogan/git-a-bit",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",

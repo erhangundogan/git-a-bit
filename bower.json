@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "git-a-bit",
+  "description": "Github oriented experimental spa project",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/erhangundogan/git-a-bit",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "angular-route": "1.2.x",
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.x",
-    "html5-boilerplate": "~4.3.0"
+    "html5-boilerplate": "~4.3.0",
+    "bootstrap": "~3.3.1"
   }
 }
