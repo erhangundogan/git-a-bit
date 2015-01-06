@@ -6,9 +6,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title>My AngularJS App</title>
+
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet/less" type="text/css" href="feature/home/home.less"/>
+
   <link rel="stylesheet" href="/public/components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="/public/components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="/public/components/bootstrap/dist/css/bootstrap.min.css">
@@ -23,15 +28,66 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Git-a-bit</a>
+      </div>
+
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+
+    </div>
+
+  </nav>
+
   <div ng-view></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+
+  <!-- libraries -->
   <script src="/public/components/jquery/dist/jquery.min.js"></script>
   <script src="/public/components/angular/angular.js"></script>
   <script src="/public/components/angular-route/angular-route.js"></script>
   <script src="/public/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>
+    less = {
+      env: "development",
+      logLevel: 1,
+      async: false,
+      fileAsync: false,
+      poll: 1000,
+      functions: {},
+      dumpLineNumbers: "comments",
+      relativeUrls: false
+    };
+  </script>
+  <script src="/public/components/less/dist/less.min.js"></script>
+  <!-- /libraries -->
+
+  <!-- core files -->
   <script src="app.js"></script>
+  <script src="service.js"></script>
+  <!-- /core files -->
+
+  <!-- feature files -->
+  <script src="/feature/search/search.js"></script>
+  <!-- /feature files -->
+
 </body>
 </html>

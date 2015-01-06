@@ -13,8 +13,16 @@ var gitabit = angular
 
     $routeProvider
 
+      .when('/', {
+        templateUrl: '/feature/home/home.html'
+      })
+
       .when('/404', {
         templateUrl: '/feature/status/404.html'
+      })
+
+      .when('/search', {
+        templateUrl: '/feature/search/search.html'
       })
 
       .otherwise({
