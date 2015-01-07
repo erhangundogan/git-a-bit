@@ -5,9 +5,10 @@ var gitabit = angular
 
   .module('gitabit', [
     'ngRoute'
-  ]).
+  ])
 
-  config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+
+  .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 
     $locationProvider.hashPrefix('!');
 
@@ -28,5 +29,11 @@ var gitabit = angular
       .otherwise({
         redirectTo: '/404'
       });
+
+  }])
+
+  .run(['$rootScope', function ($rootScope) {
+
+    $rootScope.activePage = 'home';
 
   }]);

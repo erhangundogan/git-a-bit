@@ -2,11 +2,26 @@
 
   <div class="row">
 
-    <div class="col-sm-12">
+    <div class="col-sm-12 search">
 
       <span>Search: </span>
       <input type="text" ng-model="searchQuery" />
-      <button ng-click="doSearch(searchQuery)"></button>
+      <button ng-click="doSearch(searchQuery)">Search</button>
+
+      <hr/>
+
+      <div class="page-header">
+        <h1>Github Repositories <small>Search Results</small></h1>
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item search-result-item"
+            ng-click="selectProject(repo)"
+            ng-class="{active: hover}"
+            ng-mouseenter="hover = true"
+            ng-mouseleave="hover = false"
+            ng-repeat="repo in repos">{{ repo.full_name }}</li>
+      </ul>
 
     </div>
 

@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12 committers">
+      <div class="page-header">
+        <h2>Committers to project <small></small></h2>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item committers-item"
+            ng-repeat="committer in committers">{{ committer }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 impacts">
+      <div class="page-header">
+        <h2>Impact of users <small>Based on commits</small></h2>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item impacts-item"
+            ng-repeat="impact in impacts">{{ impact }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 projections">
+      <div class="page-header">
+        <h2>Projection of commits <small></small></h2>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item projections-item"
+            ng-repeat="project in projections">{{ project }}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
