@@ -1,14 +1,17 @@
 gitabit
-  .controller('repoCtrl', ['$scope', '$route', '$timeout', function ($scope, $route, $timeout) {
+  .controller('repoCtrl', ['$scope', '$rootScope', '$route', '$timeout',
+    function ($scope, $rootScope, $route, $timeout) {
 
-    $scope.ownerRepo = null;
+      $rootScope.activePage = 'repo';
 
-    if ($route.current.params &&
+      $scope.ownerRepo = null;
+
+      if ($route.current.params &&
         $route.current.params.owner &&
         $route.current.params.repo) {
-      $timeout(function() {
-        $scope.ownerRepo = $route.current.params.owner + '/' + $route.current.params.repo;
-      });
-    }
+        $timeout(function () {
+          $scope.ownerRepo = $route.current.params.owner + '/' + $route.current.params.repo;
+        });
+      }
 
-  }]);
+    }]);

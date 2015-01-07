@@ -15,10 +15,17 @@ var gitabit = angular
     $routeProvider
 
       .when('/', {
-        templateUrl: '/feature/home/home.html'
+        templateUrl: '/feature/home/home.html',
+        controller: ['$rootScope', function($rootScope) {
+          $rootScope.activePage = 'home';
+        }]
       })
 
       .when('/repo/:owner/:repo', {
+        templateUrl: '/feature/repo/repo.html'
+      })
+
+      .when('/repo', {
         templateUrl: '/feature/repo/repo.html'
       })
 
@@ -38,6 +45,6 @@ var gitabit = angular
 
   .run(['$rootScope', function ($rootScope) {
 
-    $rootScope.activePage = 'home';
+
 
   }]);

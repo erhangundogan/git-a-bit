@@ -1,21 +1,22 @@
 <div class="container" ng-controller="repoCtrl">
   <div class="row">
     <div class="col-sm-12 repo">
-      <ul class="nav nav-tabs">
 
-        <li role="presentation" class="active">
-          <a href="#">Contributors</a>
+      <ul id="tabs" class="nav nav-tabs" ng-if="ownerRepo">
+        <li role="presentation">
+          <a show-tab href="#contributor">Contributors</a>
         </li>
 
         <li role="presentation">
-          <a href="#">Commits</a>
+          <a show-tab href="#commit">Commits</a>
         </li>
-
       </ul>
+      <div id="contributor" contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
+      <div id="commit" commit owner-repo="ownerRepo" commits-count="10" class="tab-pane fade"></div>
 
-      <div contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
-
-      <div commit owner-repo="ownerRepo" commits-count="10" class="tab-pane fade"></div>
+      <div ng-if="!ownerRepo">
+        <h3>Please use search feature or write down /repo/:owner/:repo to url</h3>
+      </div>
 
     </div>
   </div>

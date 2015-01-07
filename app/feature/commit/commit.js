@@ -10,14 +10,20 @@ gitabit
 
               $timeout(function() {
                 if (result && angular.isArray(result)) {
-                  $scope.commits = result;
+                  $scope.commitItems = {};
+                  _.groupBy(result, function(item) {
+                    if (item && item.commit && item.commit.author && item.commit.author.email) {
+                      $scope.commitItems[item.commit.author.email] = $scope.commitItems[item.commit.author.email] || [];
+                      $scope.commitItems[item.commit.author.email].push(item);
+                    }
+                  });
                 } else {
-                  $scope.commits = null;
+                  $scope.commitItems = null;
                 }
               });
 
             }, function (err) {
-              $scope.commits = null;
+              $scope.commitItems = null;
               console.error(err);
             });
         };

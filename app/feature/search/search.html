@@ -4,8 +4,8 @@
 
     <div class="col-sm-12 search">
 
-      <span>Search: </span>
-      <input type="text" ng-model="searchQuery" />
+      <span>Search Repository: </span>
+      <input type="text" ng-model="searchQuery" ng-keyup="keyPress($event)" />
       <button ng-click="doSearch(searchQuery)">Search</button>
 
       <hr/>

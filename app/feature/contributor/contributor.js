@@ -11,6 +11,7 @@ gitabit
               $timeout(function() {
                 if (result && angular.isArray(result)) {
                   $scope.contributors = result;
+                  angular.element('#tabs li a[href="#contributor"]').tab('show');
                 } else {
                   $scope.contributors = null;
                 }

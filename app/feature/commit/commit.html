@@ -8,7 +8,31 @@
         </h2>
       </div>
       <ul class="list-group">
-        <li class="list-group-item commit-item" ng-repeat="contributor in contributors">
+        <li class="list-group-item commit-item" ng-repeat="(email, commitItem) in commitItems">
+
+          <div class="row">
+            <div class="col-xs-1 commit-index">
+              <span ng-bind="$index + 1"></span>
+            </div>
+            <div class="col-xs-1">
+              <img class="avatar" ng-src="{{ commitItem.author.avatar_url || 'https://assets-cdn.github.com/images/gravatars/gravatar-user-420.png?ssl=1' }}" />
+            </div>
+            <div class="col-xs-10">
+              <div class="row">
+                <div class="col-xs-12">
+                  <a ng-href="{{ commitItem.author.html_url || 'https://github.com' }}">
+                    <span>{{ commitItem.commit.author.name }}</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <span>Contributions: {{ contributor.contributions }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </li>
       </ul>
     </div>

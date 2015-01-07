@@ -50,13 +50,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Git-a-bit</a>
+        <a class="navbar-brand" href="/#!/">Git-a-bit</a>
       </div>
 
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li ng-class="{ active: activePage === 'home' }"><a href="/#!/">Home</a></li>
           <li ng-class="{ active: activePage === 'search' }"><a href="/#!/search">Search</a></li>
+          <li ng-class="{ active: activePage === 'repo' }"><a href="/#!/repo">Repository</a></li>
         </ul>
       </div><!--/.nav-collapse -->
 
@@ -74,6 +75,7 @@
   <script src="/public/components/jquery/dist/jquery.min.js"></script>
   <script src="/public/components/angular/angular.js"></script>
   <script src="/public/components/angular-route/angular-route.js"></script>
+  <script src="/public/components/underscore/underscore-min.js"></script>
   <script src="/public/components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script>
     less = {
@@ -98,6 +100,7 @@
   <!-- feature js files -->
   <script src="/feature/search/search.js"></script>
   <script src="/feature/repo/repo.js"></script>
+  <script src="/feature/repo/show-tab.js"></script>
   <script src="/feature/commit/commit.js"></script>
   <script src="/feature/contributor/contributor.js"></script>
   <!-- /feature js files -->
