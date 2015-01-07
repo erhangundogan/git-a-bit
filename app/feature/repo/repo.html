@@ -1,0 +1,22 @@
+<div class="container" ng-controller="repoCtrl">
+  <div class="row">
+    <div class="col-sm-12 repo">
+      <ul class="nav nav-tabs">
+
+        <li role="presentation" class="active">
+          <a href="#">Contributors</a>
+        </li>
+
+        <li role="presentation">
+          <a href="#">Commits</a>
+        </li>
+
+      </ul>
+
+      <div contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
+
+      <div commit owner-repo="ownerRepo" commits-count="10" class="tab-pane fade"></div>
+
+    </div>
+  </div>
+</div>

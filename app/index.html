@@ -12,16 +12,26 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+  <!-- features less files -->
   <link rel="stylesheet/less" type="text/css" href="feature/home/home.less"/>
   <link rel="stylesheet/less" type="text/css" href="feature/search/search.less"/>
+  <link rel="stylesheet/less" type="text/css" href="feature/repo/repo.less"/>
+  <link rel="stylesheet/less" type="text/css" href="feature/commit/commit.less"/>
+  <link rel="stylesheet/less" type="text/css" href="feature/contributor/contributor.less"/>
+  <!-- /features less files -->
 
+  <!-- js libraries -->
+  <script src="/public/components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- /js libraries -->
+
+  <!-- css files -->
   <link rel="stylesheet" href="/public/components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="/public/components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="/public/components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/public/components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/public/css/main.css">
+  <!-- /css files -->
 
-  <script src="/public/components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 
@@ -60,7 +70,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
 
-  <!-- libraries -->
+  <!-- js libraries -->
   <script src="/public/components/jquery/dist/jquery.min.js"></script>
   <script src="/public/components/angular/angular.js"></script>
   <script src="/public/components/angular-route/angular-route.js"></script>
@@ -78,16 +88,19 @@
     };
   </script>
   <script src="/public/components/less/dist/less.min.js"></script>
-  <!-- /libraries -->
+  <!-- /js libraries -->
 
-  <!-- core files -->
+  <!-- core js files -->
   <script src="app.js"></script>
   <script src="service.js"></script>
-  <!-- /core files -->
+  <!-- /core js files -->
 
-  <!-- feature files -->
+  <!-- feature js files -->
   <script src="/feature/search/search.js"></script>
-  <!-- /feature files -->
+  <script src="/feature/repo/repo.js"></script>
+  <script src="/feature/commit/commit.js"></script>
+  <script src="/feature/contributor/contributor.js"></script>
+  <!-- /feature js files -->
 
 </body>
 </html>

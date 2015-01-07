@@ -1,39 +1,65 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-sm-12 committers">
+    <div class="col-xs-12 contributors">
       <div class="page-header">
-        <h2>Committers to project <small></small></h2>
+        <h2>Contributors to project <small></small></h2>
       </div>
       <ul class="list-group">
-        <li class="list-group-item committers-item"
-            ng-repeat="committer in committers">{{ committer }}</li>
+        <li class="list-group-item contributor-item" ng-repeat="contributor in contributors">
+
+          <div class="row">
+            <div class="col-xs-1 contributor-index">
+              <span ng-bind="$index + 1"></span>
+            </div>
+            <div class="col-xs-1">
+              <img class="avatar" ng-src="{{ contributor.avatar_url }}" />
+            </div>
+            <div class="col-xs-10">
+              <div class="row">
+                <div class="col-xs-12">
+                  <a ng-href="{{ contributor.html_url }}">
+                    <span>{{ contributor.login }}</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <span>Contributions: {{ contributor.contributions }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </li>
       </ul>
     </div>
   </div>
 
+  <!--
   <div class="row">
-    <div class="col-sm-12 impacts">
+    <div class="col-xs-12 impacts">
       <div class="page-header">
         <h2>Impact of users <small>Based on commits</small></h2>
       </div>
       <ul class="list-group">
-        <li class="list-group-item impacts-item"
+        <li class="list-group-item impact-item"
             ng-repeat="impact in impacts">{{ impact }}</li>
       </ul>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-12 projections">
+    <div class="col-xs-12 projections">
       <div class="page-header">
         <h2>Projection of commits <small></small></h2>
       </div>
       <ul class="list-group">
-        <li class="list-group-item projections-item"
+        <li class="list-group-item projection-item"
             ng-repeat="project in projections">{{ project }}</li>
       </ul>
     </div>
   </div>
+  -->
 
 </div>

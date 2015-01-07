@@ -1,5 +1,5 @@
 gitabit
-  .controller('searchCtrl', ['$scope', 'GithubService', function ($scope, GithubService) {
+  .controller('searchCtrl', ['$scope', '$location', 'GithubService', function ($scope, $location, GithubService) {
 
     $scope.doSearch = function (query) {
       GithubService
@@ -17,7 +17,9 @@ gitabit
     };
 
     $scope.selectProject = function(item) {
-      debugger;
+      if (item && item.full_name) {
+        $location.path('/repo/' + item.full_name);
+      }
     };
 
   }]);

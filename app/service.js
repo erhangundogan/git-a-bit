@@ -16,7 +16,8 @@ gitabit
               params: { q: query }
             })
               .success(function (response, statusCode) {
-                if (statusCode !== 200) {
+                // 202 github cached results
+                if (statusCode !== 200 && statusCode !== 202) {
                   mDefer.reject(response.error);
                 } else {
                   mDefer.resolve(response);
@@ -43,7 +44,7 @@ gitabit
               method: 'GET'
             })
               .success(function (response, statusCode) {
-                if (statusCode !== 200) {
+                if (statusCode !== 200 && statusCode !== 202) {
                   mDefer.reject(response.error);
                 } else {
                   mDefer.resolve(response);
@@ -61,17 +62,17 @@ gitabit
           return mDefer.promise;
         },
 
-        getLastNCommits: function(count) {
+        getLastNCommits: function(ownerRepo, commitsCount) {
           var mDefer = $q.defer(),
-              count = count || 100;
+              commitsCount = commitsCount || 100;
 
-          if (count) {
+          if (commitsCount && ownerRepo) {
             $http({
-              url: address + '/repos/' + ownerRepo + '/contributors',
+              url: address + '/repos/' + ownerRepo + '/commits?per_page=' + commitsCount,
               method: 'GET'
             })
               .success(function (response, statusCode) {
-                if (statusCode !== 200) {
+                if (statusCode !== 200 && statusCode !== 202) {
                   mDefer.reject(response.error);
                 } else {
                   mDefer.resolve(response);
@@ -82,13 +83,11 @@ gitabit
               })
           } else {
             $timeout(function() {
-              mDefer.reject('No owner/repository specified!');
+              mDefer.reject('No owner/repository or commit count specified!');
             });
           }
 
           return mDefer.promise;
-
-          '/repos/golang/go/stats/commit_activity';
         }
       };
     }]);

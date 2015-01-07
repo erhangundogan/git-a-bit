@@ -18,6 +18,10 @@ var gitabit = angular
         templateUrl: '/feature/home/home.html'
       })
 
+      .when('/repo/:owner/:repo', {
+        templateUrl: '/feature/repo/repo.html'
+      })
+
       .when('/404', {
         templateUrl: '/feature/status/404.html'
       })

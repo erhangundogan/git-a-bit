@@ -1,29 +1,35 @@
 gitabit
-  .directive('contributor', ['GithubService', function (GithubService) {
+  .directive('contributor', ['$timeout', 'GithubService', function ($timeout, GithubService) {
 
     return {
       controller: function($scope) {
         $scope.getContributors = function () {
           GithubService
-            .contributors($scope.owner, $scope.repo)
+            .contributors($scope.ownerRepo)
             .then(function (result) {
-              if (result && result.items && result.items.length > 0) {
-                $scope.repos = result.items;
-              } else {
-                $scope.repos = null;
-              }
+
+              $timeout(function() {
+                if (result && angular.isArray(result)) {
+                  $scope.contributors = result;
+                } else {
+                  $scope.contributors = null;
+                }
+              });
+
             }, function (err) {
-              $scope.repos = null;
+              $scope.contributors = null;
               console.error(err);
             });
         };
+
+        $scope.$watch('ownerRepo', $scope.getContributors);
+
       },
       scope: {
-        owner: '&',
-        repo: '&'
+        ownerRepo: '='
       },
       replace: true,
-      templateUrl: "/features/contributor/contributor.html"
+      templateUrl: "/feature/contributor/contributor.html"
     };
 
   }]);
