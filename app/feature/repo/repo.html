@@ -4,19 +4,21 @@
 
       <ul id="tabs" class="nav nav-tabs" ng-if="ownerRepo">
         <li role="presentation">
-          <a show-tab href="#contributor">Contributors</a>
+          <a show-tab id="#contributor-show" href="#contributor" data-tab="contributor">Contributors</a>
         </li>
 
         <li role="presentation">
-          <a show-tab href="#commit">Commits</a>
+          <a show-tab id="#commit-show" href="#commit" data-tab="commit">Commits</a>
         </li>
       </ul>
       <div id="contributor" contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
-      <div id="commit" commit owner-repo="ownerRepo" commits-count="10" class="tab-pane fade"></div>
+      <div id="commit" commit owner-repo="ownerRepo" commits-count="100" class="tab-pane fade"></div>
 
       <div ng-if="!ownerRepo">
         <h3>Please use search feature or write down /repo/:owner/:repo to url</h3>
       </div>
+
+      <div timeline data="timelineData"></div>
 
     </div>
   </div>

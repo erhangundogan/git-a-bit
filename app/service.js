@@ -40,7 +40,7 @@ gitabit
 
           if (ownerRepo) {
             $http({
-              url: address + '/repos/' + ownerRepo + '/contributors',
+              url: address + '/repos/' + ownerRepo + '/contributors?per_page=10',
               method: 'GET'
             })
               .success(function (response, statusCode) {

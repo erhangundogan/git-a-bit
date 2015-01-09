@@ -2,32 +2,31 @@
 
   <div class="row">
     <div class="col-sm-12 commits">
-      <div class="page-header">
-        <h2>Commits to project
-          <small>Based on last {{ commitsCount }} commits</small>
-        </h2>
-      </div>
+
+      <h2>Commits to project
+        <small>Latest {{ commitsCount }} commits</small>
+      </h2>
+
       <ul class="list-group">
-        <li class="list-group-item commit-item" ng-repeat="(email, commitItem) in commitItems">
+        <li class="list-group-item commit-item"
+            ng-repeat="(authorName, commitItem) in commitItems | orderBy: commitItem">
 
           <div class="row">
-            <div class="col-xs-1 commit-index">
-              <span ng-bind="$index + 1"></span>
-            </div>
             <div class="col-xs-1">
-              <img class="avatar" ng-src="{{ commitItem.author.avatar_url || 'https://assets-cdn.github.com/images/gravatars/gravatar-user-420.png?ssl=1' }}" />
+              <img class="avatar"
+                   ng-src="{{ commitItem[0].author.avatar_url || 'https://assets-cdn.github.com/images/gravatars/gravatar-user-420.png?ssl=1' }}"/>
             </div>
-            <div class="col-xs-10">
+            <div class="col-xs-11">
               <div class="row">
                 <div class="col-xs-12">
-                  <a ng-href="{{ commitItem.author.html_url || 'https://github.com' }}">
-                    <span>{{ commitItem.commit.author.name }}</span>
+                  <a ng-href="{{ commitItem[0].author.html_url || 'https://github.com' }}">
+                    <span>{{ commitItem[0].commit.author.name }}</span>
                   </a>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
-                  <span>Contributions: {{ contributor.contributions }}</span>
+                  <span>Commits: {{ commitItem.length * commitsCount / 100 }}%</span>
                 </div>
               </div>
             </div>
@@ -35,6 +34,7 @@
 
         </li>
       </ul>
+
     </div>
   </div>
 </div>

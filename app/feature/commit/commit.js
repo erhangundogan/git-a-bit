@@ -12,11 +12,12 @@ gitabit
                 if (result && angular.isArray(result)) {
                   $scope.commitItems = {};
                   _.groupBy(result, function(item) {
-                    if (item && item.commit && item.commit.author && item.commit.author.email) {
-                      $scope.commitItems[item.commit.author.email] = $scope.commitItems[item.commit.author.email] || [];
-                      $scope.commitItems[item.commit.author.email].push(item);
+                    if (item && item.commit && item.commit.author && item.commit.author.name) {
+                      $scope.commitItems[item.commit.author.name] = $scope.commitItems[item.commit.author.name] || [];
+                      $scope.commitItems[item.commit.author.name].push(item);
                     }
                   });
+
                 } else {
                   $scope.commitItems = null;
                 }
