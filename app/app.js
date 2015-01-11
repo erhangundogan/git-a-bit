@@ -4,8 +4,7 @@
 var gitabit = angular
 
   .module('gitabit', [
-    'ngRoute',
-    'd3'
+    'ngRoute'
   ])
 
 

@@ -10,15 +10,18 @@
         <li role="presentation">
           <a show-tab id="#commit-show" href="#commit" data-tab="commit">Commits</a>
         </li>
+
+        <li role="presentation">
+          <a show-tab id="#timeline-show" href="#timeline" data-tab="timeline">Timeline</a>
+        </li>
       </ul>
       <div id="contributor" contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
       <div id="commit" commit owner-repo="ownerRepo" commits-count="100" class="tab-pane fade"></div>
+      <div id="timeline" timeline owner-repo="ownerRepo" commits-count="100" class="tab-pane fade"></div>
 
       <div ng-if="!ownerRepo">
         <h3>Please use search feature or write down /repo/:owner/:repo to url</h3>
       </div>
-
-      <div timeline data="timelineData"></div>
 
     </div>
   </div>
