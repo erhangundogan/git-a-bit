@@ -1,4 +1,4 @@
 Git a bit
 ---------
 
-Experimental github spa project.
+Experimental github api and AngularJS spa project.

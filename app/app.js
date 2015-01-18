@@ -45,6 +45,4 @@ var gitabit = angular
 
   .run(['$rootScope', function ($rootScope) {
 
-
-
   }]);

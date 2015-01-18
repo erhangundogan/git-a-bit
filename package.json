@@ -1,8 +1,8 @@
 {
   "name": "git-a-bit",
   "private": true,
-  "version": "0.0.0",
-  "description": "Github oriented experimental spa project",
+  "version": "0.0.1",
+  "description": "Github api experimental AngularJS single page application",
   "repository": "https://github.com/erhangundogan/git-a-bit",
   "license": "MIT",
   "devDependencies": {
