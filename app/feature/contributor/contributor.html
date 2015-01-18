@@ -13,7 +13,9 @@
               <span ng-bind="$index + 1"></span>
             </div>
             <div class="col-xs-1">
-              <img class="avatar" ng-src="{{ contributor.avatar_url }}" />
+              <a ng-href="{{ contributor.html_url }}">
+                <img class="avatar" ng-src="{{ contributor.avatar_url }}" />
+              </a>
             </div>
             <div class="col-xs-10">
               <div class="row">

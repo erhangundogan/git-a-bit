@@ -1,34 +1,43 @@
 gitabit
-  .directive('timeline', ['$window', '$timeout', 'GithubService',
-    function ($window, $timeout, GithubService) {
+  .directive('timeline', ['$q', '$window', '$timeout', 'GithubService',
+    function ($q, $window, $timeout, GithubService) {
 
     return {
       controller: function($scope) {
         $scope.getCommits = function () {
-          GithubService
-            .getLastNCommits($scope.ownerRepo)
-            .then(function (result) {
 
-              $timeout(function() {
-                if (result && angular.isArray(result)) {
-                  $scope.commitData = _.map(result, function(item) {
-                    if (item && item.commit && item.commit.author) {
-                      var time = item.commit.author.date;
-                      return {
-                        name: item.commit.author.name,
-                        time: time
-                      };
-                    }
-                  });
-                } else {
-                  $scope.commitData = null;
-                }
-              });
+          var promises = [
+            GithubService.getRepository($scope.ownerRepo),
+            GithubService.getCommitsTimeline($scope.ownerRepo)
+          ];
 
-            }, function (err) {
-              $scope.commitData = null;
-              console.error(err);
-            });
+          $q.all(promises).then(
+            function(results) {
+              if (results && results.length === 2) {
+                var data = results[0];
+                var timelineData = results[1];
+                timelineData.timeline.text = _.template(timelineData.timeline.text);
+
+                $timeout(
+                  function() {
+                    $window.createStoryJS({
+                      type: 'timeline',
+                      width: '100%',
+                      height: '600',
+                      source: timelineData,
+                      embed_id: 'timeline'
+                    });
+
+                    angular.element($window).triggerHandler('resize');
+                  }
+                );
+              }
+            },
+            function(errors) {
+              console.error(errors);
+            }
+          );
+
         };
 
         $scope.$watch('ownerRepo', $scope.getCommits);

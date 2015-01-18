@@ -2,7 +2,11 @@ gitabit
   .directive('showTab',
     function () {
       return {
+        scope: {
+          activate: '&'
+        },
         link: function (scope, element, attrs) {
+
           element.click(function (e) {
             e.preventDefault();
 
@@ -14,6 +18,10 @@ gitabit
 
             // activate tab
             jQuery(element).css('display', 'block').tab('show');
+
+            if (attrs['tab'] === 'commit') {
+              scope.activate();
+            }
           });
         }
       };

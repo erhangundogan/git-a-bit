@@ -9,12 +9,14 @@
 
       <ul class="list-group">
         <li class="list-group-item commit-item"
-            ng-repeat="(authorName, commitItem) in commitItems | orderBy: commitItem">
+            ng-repeat="(authorName, commitItem) in commitItems">
 
           <div class="row">
             <div class="col-xs-1">
-              <img class="avatar"
-                   ng-src="{{ commitItem[0].author.avatar_url || 'https://assets-cdn.github.com/images/gravatars/gravatar-user-420.png?ssl=1' }}"/>
+              <a ng-href="{{ commitItem[0].author.html_url || 'https://github.com' }}">
+                <img class="avatar"
+                     ng-src="{{ commitItem[0].author.avatar_url || 'https://assets-cdn.github.com/images/gravatars/gravatar-user-420.png?ssl=1' }}"/>
+              </a>
             </div>
             <div class="col-xs-11">
               <div class="row">
@@ -26,7 +28,10 @@
               </div>
               <div class="row">
                 <div class="col-xs-12">
-                  <span>Commits: {{ commitItem.length * commitsCount / 100 }}%</span>
+                  <div class="progress-title">Commit: {{ (commitItem.length / commitsCount) * 100 | number }}%</div>
+                  <div class="progress-wrap progress" data-progress-percent="{{ (commitItem.length / commitsCount) * 100 | number }}">
+                    <div class="progress-bar progress"></div>
+                  </div>
                 </div>
               </div>
             </div>
