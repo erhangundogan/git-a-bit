@@ -151,12 +151,10 @@ gitabit
 
                   var timelineData = {
                     timeline: {
-                      headline:ownerRepo,
+                      headline: ownerRepo,
                       type: "default",
                       startDate: getDateText(new Date(startDateItem.commit.author.date)),
-                      text: '<h2><a href="<%= project.homepage %>"><%= project.name %></a></h2>' +
-                      '<h3><a href="<%= project.html_url %>"><%= project.full_name %></a></h3>' +
-                      '<p><%= project.description %></p>',
+                      text: '',
                       date: []
                     }
                   };
@@ -165,7 +163,8 @@ gitabit
                     var newItem = {
                       startDate: getDateText(new Date(item.commit.author.date)),
                       headline: item.commit.author.name,
-                      text: '<a href="' + item.html_url + '">' + item.commit.message + '</a>'
+                      text: '<div class="timeline-commit"><a class="btn btn-primary" href="' + item.html_url +
+                            '">commit</a></div><br/><div class="timeline-commit-detail">' + item.commit.message + '</div>'
                     };
                     timelineData.timeline.date.push(newItem);
                   });

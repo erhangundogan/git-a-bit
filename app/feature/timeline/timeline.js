@@ -4,31 +4,37 @@ gitabit
 
     return {
       controller: function($scope) {
+
+        $scope.showMessage = true;
+        $scope.graphShown = false;
         $scope.getCommits = function () {
 
           var promises = [
             GithubService.getRepository($scope.ownerRepo),
-            GithubService.getCommitsTimeline($scope.ownerRepo)
+            GithubService.getCommitsTimeline($scope.ownerRepo, $scope.commitsCount)
           ];
 
+          // this calls just for demonstration of multiple requests
+          // promise library resolves all results and goes on
           $q.all(promises).then(
             function(results) {
               if (results && results.length === 2) {
                 var data = results[0];
                 var timelineData = results[1];
-                timelineData.timeline.text = _.template(timelineData.timeline.text);
+                timelineData.timeline.text = data.description;
 
                 $timeout(
                   function() {
                     $window.createStoryJS({
                       type: 'timeline',
                       width: '100%',
-                      height: '600',
+                      height: '700',
                       source: timelineData,
-                      embed_id: 'timeline'
+                      embed_id: 'timeline-graph'
                     });
 
-                    angular.element($window).triggerHandler('resize');
+                    $scope.showMessage = false;
+                    $scope.graphShown = true;
                   }
                 );
               }
@@ -37,16 +43,26 @@ gitabit
               console.error(errors);
             }
           );
-
         };
-
-        $scope.$watch('ownerRepo', $scope.getCommits);
 
       },
       restrict: 'A',
       scope: {
         ownerRepo: '=',
-        commitsCount: '='
+        commitsCount: '=',
+        activate: '=',
+        showMessage: '='
+      },
+      link: function(scope, element) {
+
+        // check out scope.activate variable, and if it changes execute this method
+        scope.$watch('activate', function (after, before) {
+          // if timeline tab is activated
+          if (after === true && !before && !scope.graphShown) {
+            scope.getCommits();
+          }
+        });
+
       }
     }
 

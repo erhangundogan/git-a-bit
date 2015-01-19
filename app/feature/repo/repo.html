@@ -8,16 +8,23 @@
         </li>
 
         <li role="presentation">
-          <a show-tab id="#commit-show" href="#commit" data-tab="commit" activate="activateProgress()">Commits</a>
+          <a show-tab id="#commit-show" href="#commit" data-tab="commit" activate="activateCommitProgress()">Commits</a>
         </li>
 
         <li role="presentation">
-          <a show-tab id="#timeline-show" href="#timeline" data-tab="timeline">Timeline</a>
+          <a show-tab id="#timeline-show" href="#timeline" data-tab="timeline" activate="activateTimelineProgress()">Timeline</a>
         </li>
       </ul>
       <div id="contributor" contributor owner-repo="ownerRepo" class="tab-pane fade"></div>
-      <div id="commit" commit owner-repo="ownerRepo" commits-count="100" class="tab-pane fade" activate="inProgress"></div>
-      <div id="timeline" timeline owner-repo="ownerRepo" commits-count="100" class="tab-pane fade"></div>
+
+      <div id="commit" commit owner-repo="ownerRepo" commits-count="100"
+           class="tab-pane fade" activate="commitProgress"></div>
+
+      <div id="timeline" timeline owner-repo="ownerRepo" commits-count="100"
+           class="tab-pane fade" activate="timelineProgress" show-message="showMessage">
+        <div id="timeline-graph"></div>
+        <span class="message" ng-if="showMessage">Please wait...</span>
+      </div>
 
       <div ng-if="!ownerRepo">
         <h3>Please use search feature or write down /repo/:owner/:repo to url</h3>

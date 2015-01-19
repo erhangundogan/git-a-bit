@@ -19,7 +19,7 @@ gitabit
             // activate tab
             jQuery(element).css('display', 'block').tab('show');
 
-            if (attrs['tab'] === 'commit') {
+            if (attrs['tab'] === 'commit' || attrs['tab'] === 'timeline') {
               scope.activate();
             }
           });
