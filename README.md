@@ -10,10 +10,6 @@ You can see list of contributors, latest commits and projection of commits on a 
 
 Experimental single page application using AngularJS and github api.
 
-### Live Edition
-
-[http://gitabit.gelistirme.org](http://gitabit.gelistirme.org)
-
 ### Installation
 
 * git clone https://github.com/erhangundogan/git-a-bit.git
